@@ -1,0 +1,1312 @@
+/* =========================================================
+   CRYPTO RISK AI
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b0e11;
+    --header: #181a20;
+    --card: #181a20;
+    --hover: #1e2329;
+    --border: #2b3139;
+
+    --text: #eaecef;
+    --muted: #848e9c;
+
+    --yellow: #f0b90b;
+    --yellow-hover: #f8c62d;
+
+    --green: #0ecb81;
+    --red: #f6465d;
+    --orange: #f0a500;
+
+    --radius: 6px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    height: 64px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.brand-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--yellow);
+    color: #181a20;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.brand-text h1 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 2px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links a:hover {
+    color: var(--yellow);
+}
+
+.nav-status {
+    padding: 7px 11px;
+
+    background: #0b0e11;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.status-dot {
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 6px;
+
+    background: var(--green);
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1180px, calc(100% - 48px));
+    margin: auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    padding: 72px 20px 48px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+    margin-bottom: 20px;
+
+    background: rgba(240, 185, 11, 0.08);
+    border: 1px solid #3b3218;
+    border-radius: 4px;
+
+    color: var(--yellow);
+    font-size: 11px;
+}
+
+.hero h2 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.hero h2 span {
+    color: var(--yellow);
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 18px auto 0;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-section {
+    max-width: 850px;
+    margin: auto;
+}
+
+.search-section label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.search-wrapper {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 5px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.search-wrapper:focus-within {
+    border-color: var(--yellow);
+}
+
+.search-icon {
+    width: 42px;
+
+    text-align: center;
+
+    color: var(--muted);
+    font-size: 20px;
+}
+
+.search-wrapper input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--text);
+    font-size: 13px;
+}
+
+.search-wrapper input::placeholder {
+    color: #5e6673;
+}
+
+.search-wrapper button {
+    height: 42px;
+    padding: 0 22px;
+
+    background: var(--yellow);
+    border: none;
+    border-radius: 4px;
+
+    color: #181a20;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.search-wrapper button:hover {
+    background: var(--yellow-hover);
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+   ========================================================= */
+
+.search-results {
+    margin-top: 5px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    position: relative;
+    z-index: 20;
+}
+
+.search-result {
+    min-height: 54px;
+    padding: 8px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #22262d;
+
+    cursor: pointer;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result:hover {
+    background: var(--hover);
+}
+
+.result-main {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.coin-mini-icon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2b3139;
+    border-radius: 50%;
+
+    color: var(--yellow);
+    font-size: 10px;
+    font-weight: 700;
+
+    overflow: hidden;
+}
+
+.coin-mini-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.coin-mini-icon span {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.result-name {
+    display: block;
+
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.result-symbol {
+    display: block;
+    margin-top: 2px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.result-rank {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.search-no-results {
+    padding: 16px;
+
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+    max-width: 850px;
+    margin: 22px auto;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.spinner {
+    width: 22px;
+    height: 22px;
+
+    border: 2px solid #2b3139;
+    border-top-color: var(--yellow);
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading strong {
+    display: block;
+    font-size: 12px;
+}
+
+.loading span {
+    display: block;
+    margin-top: 4px;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message {
+    max-width: 850px;
+    margin: 18px auto;
+    padding: 13px 15px;
+
+    background: rgba(246, 70, 93, 0.08);
+    border: 1px solid rgba(246, 70, 93, 0.25);
+    border-radius: var(--radius);
+
+    color: var(--red);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ANALYSIS RESULTS
+   ========================================================= */
+
+.results {
+    margin: 55px auto 90px;
+}
+
+
+/* =========================================================
+   ASSET HEADER
+   ========================================================= */
+
+.asset-header {
+    min-height: 80px;
+    padding-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.asset-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.asset-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    background: #252a31;
+    border-radius: 50%;
+
+    object-fit: contain;
+}
+
+.asset-rank {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.asset-info h3 {
+    margin: 3px 0;
+
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.asset-info > div > span:last-child {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.market-price {
+    text-align: right;
+}
+
+.market-price span {
+    display: block;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.market-price strong {
+    display: block;
+    margin: 4px 0;
+
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.market-price small {
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RISK OVERVIEW
+   ========================================================= */
+
+.risk-overview {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.risk-score-card,
+.risk-description {
+    padding: 24px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.card-label {
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.risk-score {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+
+    margin-top: 13px;
+}
+
+.risk-score strong {
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.risk-score span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.risk-level {
+    display: inline-block;
+
+    margin-top: 13px;
+    padding: 5px 8px;
+
+    background: rgba(240, 185, 11, 0.1);
+    border-radius: 3px;
+
+    color: var(--yellow);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.risk-bar {
+    width: 100%;
+    height: 5px;
+
+    margin-top: 20px;
+
+    background: #2b3139;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.risk-bar-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--yellow);
+    border-radius: inherit;
+
+    transition: width 0.7s ease;
+}
+
+.risk-description p {
+    margin-top: 15px;
+
+    color: #b7bdc6;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin: 38px 0 14px;
+}
+
+.eyebrow {
+    color: var(--yellow);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.section-title h3 {
+    margin-top: 4px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.factor-info {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RISK FACTORS
+   ========================================================= */
+
+.risk-factors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.factor-card {
+    padding: 16px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.factor-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.factor-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2b3139;
+    border-radius: 4px;
+
+    color: var(--yellow);
+}
+
+.factor-top > div:nth-child(2) {
+    flex: 1;
+}
+
+.factor-top strong {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.factor-top span {
+    display: block;
+    margin-top: 3px;
+
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.factor-top b {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.factor-bar {
+    height: 4px;
+
+    margin-top: 13px;
+
+    background: #2b3139;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.factor-fill {
+    width: 0%;
+    height: 100%;
+
+    background: var(--yellow);
+    border-radius: inherit;
+
+    transition: width 0.7s ease;
+}
+
+
+/* =========================================================
+   MARKET DATA
+   ========================================================= */
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.market-card {
+    padding: 18px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.market-card span {
+    display: block;
+    margin-bottom: 9px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.market-card strong {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+.positive {
+    color: var(--green) !important;
+}
+
+.negative {
+    color: var(--red) !important;
+}
+
+.neutral {
+    color: var(--muted) !important;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.disclaimer {
+    margin-top: 20px;
+    padding: 13px 15px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.disclaimer span {
+    color: var(--muted);
+}
+
+.disclaimer p {
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TOP 100
+   ========================================================= */
+
+.top100-section {
+    margin: 70px auto 90px;
+}
+
+.top100-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+}
+
+
+/* Header and rows */
+
+.table-header,
+.coin-row {
+    display: grid;
+
+    grid-template-columns:
+        50px
+        minmax(250px, 1fr)
+        170px
+        110px
+        100px;
+
+    align-items: center;
+    column-gap: 20px;
+}
+
+
+/* Table header */
+
+.table-header {
+    min-height: 48px;
+    padding: 0 24px;
+
+    background: #1e2329;
+    border-bottom: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Coin row */
+
+.coin-row {
+    min-height: 76px;
+    padding: 0 24px;
+
+    border-bottom: 1px solid #22262d;
+
+    transition: background 0.15s ease;
+}
+
+.coin-row:last-child {
+    border-bottom: none;
+}
+
+.coin-row:hover {
+    background: var(--hover);
+}
+
+
+/* Rank */
+
+.coin-rank {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* Coin identity */
+
+.coin-identity {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* Logo */
+
+.coin-logo-wrap {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #252a31;
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.coin-logo {
+    width: 30px;
+    height: 30px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.coin-fallback {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #2b3139;
+
+    color: var(--yellow);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* Name and symbol */
+
+.coin-details {
+    min-width: 0;
+}
+
+.coin-name {
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.coin-symbol {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+}
+
+
+/* Price */
+
+.coin-price {
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+/* Change */
+
+.coin-change {
+    font-size: 12px;
+    font-weight: 500;
+
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+/* Analyze */
+
+.coin-analyze {
+    justify-self: end;
+
+    min-width: 82px;
+
+    padding: 8px 14px;
+
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--yellow);
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.coin-analyze:hover {
+    background: rgba(240, 185, 11, 0.08);
+    border-color: var(--yellow);
+}
+
+
+/* Empty */
+
+.coin-list-empty {
+    padding: 35px;
+
+    color: var(--muted);
+
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-section {
+    margin-bottom: 90px;
+}
+
+.about-card {
+    padding: 24px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.about-card p {
+    max-width: 750px;
+
+    color: #b7bdc6;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.about-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-top: 20px;
+}
+
+.about-points span {
+    padding: 7px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    min-height: 65px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .table-header,
+    .coin-row {
+        grid-template-columns:
+            40px
+            minmax(200px, 1fr)
+            130px
+            90px
+            85px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .risk-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-factors {
+        grid-template-columns: 1fr;
+    }
+
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header,
+    .coin-row {
+        grid-template-columns:
+            40px
+            minmax(180px, 1fr)
+            90px
+            80px;
+    }
+
+    .table-header span:nth-child(3) {
+        display: none;
+    }
+
+    .coin-price {
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .asset-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .market-price {
+        text-align: left;
+    }
+
+    .table-header,
+    .coin-row {
+        grid-template-columns:
+            32px
+            minmax(150px, 1fr)
+            78px;
+    }
+
+    .table-header span:nth-child(3),
+    .table-header span:nth-child(4) {
+        display: none;
+    }
+
+    .coin-price,
+    .coin-change {
+        display: none;
+    }
+
+    .table-header {
+        padding: 0 14px;
+    }
+
+    .coin-row {
+        min-height: 68px;
+        padding: 0 14px;
+    }
+
+    .coin-logo-wrap {
+        width: 34px;
+        height: 34px;
+    }
+
+    .coin-logo {
+        width: 26px;
+        height: 26px;
+    }
+
+    .coin-identity {
+        gap: 9px;
+    }
+
+    .coin-name {
+        font-size: 12px;
+    }
+
+    .coin-analyze {
+        min-width: 70px;
+        padding: 7px 9px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 58px;
+    }
+
+    .brand-text span {
+        display: none;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .search-wrapper {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 6px;
+    }
+
+    .search-wrapper input {
+        height: 40px;
+    }
+
+    .search-wrapper button {
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    footer {
+        padding: 18px;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 7px;
+    }
+}

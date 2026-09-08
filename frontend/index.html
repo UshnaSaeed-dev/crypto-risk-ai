@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+    <rect width='64' height='64' rx='12' fill='%23f0b90b'/>
+    <text x='32' y='42' text-anchor='middle'
+    font-family='Arial' font-size='25' font-weight='900'
+    fill='%23181a20'>CR</text>
+    </svg>">
+    <title>CryptoRisk AI | Binance Agent OS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <div class="brand">
+            <div class="brand-icon">CR</div>
+
+            <div class="brand-text">
+                <h1>CryptoRisk AI</h1>
+                <span>Powered by Binance Agent OS</span>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#analyzer">Risk Analyzer</a>
+            <a href="#top100">Top 100</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            Analysis Mode
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero" id="analyzer">
+
+            <div class="hero-badge">
+                <span>✦</span>
+                AI-Powered Crypto Intelligence
+            </div>
+
+            <h2>
+                Understand Crypto Risk
+                <br>
+                <span>Before You Invest</span>
+            </h2>
+
+            <p>
+                Analyze the risk profile of 100 major cryptocurrencies
+                using AI-powered market analysis.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <label for="coinSearch">
+                Select Cryptocurrency
+            </label>
+
+            <div class="search-wrapper">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="coinSearch"
+                    placeholder="Search Bitcoin, BTC, Ethereum..."
+                    autocomplete="off"
+                >
+
+                <button id="analyzeButton">
+                    Analyze Risk
+                    <span>→</span>
+                </button>
+
+            </div>
+
+            <div
+                id="searchResults"
+                class="search-results hidden">
+            </div>
+
+        </section>
+
+
+        <!-- LOADING -->
+        <div
+            id="loading"
+            class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <div>
+                <strong>Analyzing cryptocurrency...</strong>
+
+                <span>
+                    CryptoRisk AI is processing the market data.
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+        <div
+            id="errorMessage"
+            class="error-message hidden">
+        </div>
+
+
+        <!-- ANALYSIS RESULTS -->
+        <section
+            id="results"
+            class="results hidden">
+
+
+            <!-- ASSET HEADER -->
+            <div class="asset-header">
+
+                <div class="asset-info">
+
+                <img
+                id="assetIcon"
+                class="asset-icon"
+                src=""
+                alt="Cryptocurrency logo">
+
+                    <div>
+
+                        <span
+                            id="assetRank"
+                            class="asset-rank">
+                            #—
+                        </span>
+
+                        <h3 id="assetName">
+                            —
+                        </h3>
+
+                        <span id="assetSymbol">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-price">
+
+                    <span>
+                        Market Price
+                    </span>
+
+                    <strong id="assetPrice">
+                        —
+                    </strong>
+
+                    <small id="assetChange">
+                        —
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- RISK OVERVIEW -->
+            <div class="risk-overview">
+
+
+                <!-- RISK SCORE -->
+                <div class="risk-score-card">
+
+                    <div class="card-label">
+                        Overall Risk Score
+                    </div>
+
+                    <div class="risk-score">
+
+                        <strong id="riskScore">
+                            —
+                        </strong>
+
+                        <span>/100</span>
+
+                    </div>
+
+                    <div
+                        id="riskLevel"
+                        class="risk-level">
+                        —
+                    </div>
+
+                    <div class="risk-bar">
+
+                        <div
+                            id="riskBar"
+                            class="risk-bar-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI ASSESSMENT -->
+                <div class="risk-description">
+
+                    <div class="card-label">
+                        AI Assessment
+                    </div>
+
+                    <p id="riskSummary">
+                        —
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- RISK FACTORS -->
+            <div class="section-title">
+
+                <div>
+                    <span class="eyebrow">
+                        DETAILED ANALYSIS
+                    </span>
+
+                    <h3>
+                        Risk Factors
+                    </h3>
+                </div>
+
+                <span class="factor-info">
+                    Higher score = higher risk
+                </span>
+
+            </div>
+
+
+            <div class="risk-factors">
+
+
+                <!-- VOLATILITY -->
+                <div class="factor-card">
+
+                    <div class="factor-top">
+
+                        <div class="factor-icon">
+                            ↕
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Volatility
+                            </strong>
+
+                            <span>
+                                Price movement risk
+                            </span>
+
+                        </div>
+
+                        <b id="volatilityValue">
+                            —
+                        </b>
+
+                    </div>
+
+                    <div class="factor-bar">
+
+                        <div
+                            id="volatilityBar"
+                            class="factor-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DRAWDOWN -->
+                <div class="factor-card">
+
+                    <div class="factor-top">
+
+                        <div class="factor-icon">
+                            ↓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Drawdown
+                            </strong>
+
+                            <span>
+                                Historical downside
+                            </span>
+
+                        </div>
+
+                        <b id="drawdownValue">
+                            —
+                        </b>
+
+                    </div>
+
+                    <div class="factor-bar">
+
+                        <div
+                            id="drawdownBar"
+                            class="factor-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIQUIDITY -->
+                <div class="factor-card">
+
+                    <div class="factor-top">
+
+                        <div class="factor-icon">
+                            ◇
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Liquidity Risk
+                            </strong>
+
+                            <span>
+                                Market liquidity
+                            </span>
+
+                        </div>
+
+                        <b id="liquidityValue">
+                            —
+                        </b>
+
+                    </div>
+
+                    <div class="factor-bar">
+
+                        <div
+                            id="liquidityBar"
+                            class="factor-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TREND -->
+                <div class="factor-card">
+
+                    <div class="factor-top">
+
+                        <div class="factor-icon">
+                            ↗
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Trend Risk
+                            </strong>
+
+                            <span>
+                                Current market trend
+                            </span>
+
+                        </div>
+
+                        <b id="marketTrendValue">
+                            —
+                        </b>
+
+                    </div>
+
+                    <div class="factor-bar">
+
+                        <div
+                            id="marketTrendBar"
+                            class="factor-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MARKET POSITION -->
+                <div class="factor-card">
+
+                    <div class="factor-top">
+
+                        <div class="factor-icon">
+                            ◆
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Position Risk
+                            </strong>
+
+                            <span>
+                                Market position
+                            </span>
+
+                        </div>
+
+                        <b id="marketPositionValue">
+                            —
+                        </b>
+
+                    </div>
+
+                    <div class="factor-bar">
+
+                        <div
+                            id="marketPositionBar"
+                            class="factor-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MARKET OVERVIEW -->
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MARKET DATA
+                    </span>
+
+                    <h3>
+                        Market Overview
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+                <div class="market-card">
+
+                    <span>
+                        24h Change
+                    </span>
+
+                    <strong id="marketChange">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <span>
+                        24h Volume
+                    </span>
+
+                    <strong id="marketVolume">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <span>
+                        Market Cap
+                    </span>
+
+                    <strong id="marketCap">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- DISCLAIMER -->
+            <div class="disclaimer">
+
+                <span>ⓘ</span>
+
+                <p id="disclaimerText">
+                    CryptoRisk AI provides informational analysis only.
+                    It does not provide financial advice or execute trades.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TOP 100 -->
+        <section
+            id="top100"
+            class="top100-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MARKET SCANNER
+                    </span>
+
+                    <h3>
+                        Top 100 Cryptocurrencies
+                    </h3>
+
+                </div>
+
+                <span
+                    id="coinCount"
+                    class="factor-info">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <div class="top100-card">
+
+                <div class="table-header">
+
+                    <span>#</span>
+
+                    <span>Asset</span>
+
+                    <span>Risk</span>
+
+                    <span>Action</span>
+
+                </div>
+
+
+                <div id="coinList">
+                    <!-- Generated by JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section
+            id="about"
+            class="about-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ABOUT
+                    </span>
+
+                    <h3>
+                        CryptoRisk AI
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <p>
+                    CryptoRisk AI is an educational cryptocurrency
+                    risk-analysis agent designed to analyze major
+                    digital assets using Binance Agent OS.
+                </p>
+
+
+                <div class="about-points">
+
+                    <span>✓ 100 major cryptocurrencies</span>
+                    <span>✓ AI-powered analysis</span>
+                    <span>✓ No real trading</span>
+                    <span>✓ No wallet connection</span>
+                    <span>✓ No user funds</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>
+            CryptoRisk AI
+        </span>
+
+        <span>
+            Binance Agent OS Integration
+        </span>
+
+        <span>
+            Analysis Only • No Trading
+        </span>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
