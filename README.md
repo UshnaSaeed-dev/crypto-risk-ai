@@ -1,4 +1,4 @@
-# CryptoRisk AI
+# 🛡️ CryptoRisk AI
 
 ### AI-Powered Cryptocurrency Risk Analysis using Binance Agent OS
 
@@ -155,7 +155,7 @@ CryptoRisk AI is strictly designed for **read-only cryptocurrency analysis**.
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone (https://github.com/UshnaSaeed-dev/crypto-risk-ai.git)
 cd crypto-risk-ai
 ```
 
@@ -197,4 +197,4 @@ Then:
 5. Review the risk factors.
 6. Examine the current market data.
 
-
+---
