@@ -1,0 +1,15 @@
+{
+  "name": "crypto-risk-ai-backend",
+  "version": "1.0.0",
+  "description": "Crypto Risk AI powered by Binance Agent OS market data",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "latest",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
